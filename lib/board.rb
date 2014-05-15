@@ -1,7 +1,5 @@
 class Board
   def initialize(n)
-    if n.odd? && n>1
-      @array = Array.new(n) { Array.new(n,".")}
-    end
+    raise StandardError unless n.odd? && n > 1
   end
 end
