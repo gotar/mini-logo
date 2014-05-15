@@ -16,6 +16,7 @@ Learn TDD and writing unit tests during easy lessons (Internship program - May 2
 ## Recorded meetings (in Polish)
 
 1. [Intruduction](http://youtu.be/8N4LjsAEFJA)
+2. [1st PR](http://youtu.be/MgI6yfqKOAs)
 
 ## Pull Requests
 
