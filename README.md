@@ -17,7 +17,9 @@ Learn TDD and writing unit tests during easy lessons (Internship program - May 2
 
 1. [Intruduction](http://youtu.be/8N4LjsAEFJA)
 2. [1st PR](http://youtu.be/MgI6yfqKOAs)
+3. [2nd PR](https://www.youtube.com/watch?v=RZ2KKcY7eQU)
 
 ## Pull Requests
 
 1. [Michał Marcinkowski](https://github.com/gotar/mini-logo/pull/1)
+2. [Stanisław Tuszyński](https://github.com/gotar/mini-logo/pull/2)
