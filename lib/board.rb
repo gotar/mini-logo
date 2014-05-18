@@ -1,7 +1,10 @@
 class Board
+  attr_reader :grid, :size
+  
   def initialize(n)
     raise StandardError unless n.odd? && n > 1
     @size = n
+    @grid = Array.new(size) { Array.new(size) }
   end
 
   def array(x,y)
