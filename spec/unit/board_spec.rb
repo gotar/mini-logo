@@ -21,23 +21,29 @@ describe Board do
         board.array(0,0)
       }.not_to raise_error
     end
+
+    it "puts 'X' in the center of a board" do
+      expect{
+        board.grid[board.size/2][board.size/2]
+      }.to eq('X')
+    end
+
+  describe '#fill_in'
+    it "fills a board with '.'" do
+      expect(board.fill_in.flatten.count('.')).to eq(board.size ** 2)
+    end
   end
 
-  it "fills a board with '.'" do
-    expect{
-      board.grid.flatten.count('.')
-    }.to eq(board.size ** 2)
-  end
+  describe '#postition' do
+    it "creates a hash @position to store current position" do
+      expect{
+        board.position
+      }.to be_type_of(Hash)
+    end
 
-  it "puts 'X' in the center of a board" do
-    expect{
-      board.grid[board.size/2][board.size/2]
-    }.to eq('X')
-  end 
-
-  it "creates a hash @position to store current position" do
-    expect{
-      board.position
-    }.to be_type_of(Hash)
+    it "contains two keys (x, y) and two values" do
+      expect(board.position.keys.count).to eq(2)
+      expect(board.position.values.count).to eq(2)
+    end
   end
 end
