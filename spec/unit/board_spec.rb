@@ -11,7 +11,7 @@ describe Board do
 
   it "should assign 2-dimensional @grid array from n" do
     expect(
-      board.instance_variable_get(:@grid)
+      board.grid
       ).to match_array(Array.new(5) { Array.new(5) })
   end
 
@@ -21,5 +21,23 @@ describe Board do
         board.array(0,0)
       }.not_to raise_error
     end
+  end
+
+  it "fills a board with '.'" do
+    expect{
+      board.grid.flatten.count('.')
+    }.to eq(board.size ** 2)
+  end
+
+  it "puts 'X' in the center of a board" do
+    expect{
+      board.grid[board.size/2][board.size/2]
+    }.to eq('X')
+  end 
+
+  it "creates a hash @position to store current position" do
+    expect{
+      board.position
+    }.to be_type_of(Hash)
   end
 end
