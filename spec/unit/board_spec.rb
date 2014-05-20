@@ -36,18 +36,21 @@ describe Board do
   end
 
   describe '#move' do
+    # Dominika
     it 'should be initialize with 2 params' do
       expect{
         board.move(nil, nil)
       }.not_to raise_error
     end
 
+    # Marta B
     it 'change current_position to position after move' do
       expect{
         board.move(1,1)
       }.to change(board.current_position).from({x: 5, y: 5}).to({x: 1, y: 1})
     end
 
+    # Marta W
     it 'forbids to go out of range' do
       expect(board.move(10,10)).to raise_error(OutOfBoard)
     end
