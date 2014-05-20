@@ -43,16 +43,22 @@ describe Board do
       }.not_to raise_error
     end
 
-    # Marta B
+    # Marta B - I change this spec a little bit
     it 'change current_position to position after move' do
       expect{
         board.move(1,1)
-      }.to change(board.current_position).from({x: 5, y: 5}).to({x: 1, y: 1})
+      }.to change{board.current_position}.from({x: 2, y: 2}).to({x: 1, y: 1})
     end
 
     # Marta W
     it 'forbids to go out of range' do
       expect(board.move(10,10)).to raise_error(OutOfBoard)
     end
+  end
+end
+
+describe '#user_input' do
+  it 'does not accept commands not in [uldr] digit pattern' do
+    expect(user_input).to raise_error(WrongInput)
   end
 end

@@ -1,5 +1,5 @@
 class Board
-  attr_reader :grid, :size, :current_position
+  attr_accessor :grid, :size, :current_position
 
   EMPTY_CHAR = '.'
   USED_CHAR = 'X'
@@ -13,6 +13,10 @@ class Board
 
   def array(x,y)
     [x,y].each{ |e| raise StandardError unless e >= 0 && e <= @size }
+  end
+
+  def move(x,y)
+    @current_position = {x: x, y: y}
   end
 
   private
