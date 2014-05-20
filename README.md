@@ -24,3 +24,4 @@ Learn TDD and writing unit tests during easy lessons (Internship program - May 2
 1. [Michał Marcinkowski](https://github.com/gotar/mini-logo/pull/1)
 2. [Stanisław Tuszyński](https://github.com/gotar/mini-logo/pull/2)
 3. [Mateusz Nowakowski](https://github.com/gotar/mini-logo/pull/3)
+5. [Artur Krzemiński-Freda](https://github.com/gotar/mini-logo/pull/5)
