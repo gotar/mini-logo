@@ -50,9 +50,17 @@ describe Board do
       }.to change(board.current_position).from({x: 5, y: 5}).to({x: 1, y: 1})
     end
 
-    # Marta W
+    # Marta W - changed () to {}
     it 'forbids to go out of range' do
-      expect(board.move(10,10)).to raise_error(OutOfBoard)
+      expect{
+        board.move(10,10)
+        }.to raise_error(OutOfBoard)
+    end
+
+    it 'changes EMPTY_CHAR to USED_CHAR after move' do
+      expect{
+        board.move(1,1)
+      }.to change(board.current_position).from(Board::EMPTY_CHAR).to(Board::USED_CHAR)
     end
   end
 end

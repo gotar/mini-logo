@@ -1,0 +1,2 @@
+class OutOfBoard < StandardError
+end

@@ -1,4 +1,7 @@
+require 'OutOfBoard'
+
 class Board
+
   attr_reader :grid, :size, :current_position
 
   EMPTY_CHAR = '.'
@@ -13,6 +16,10 @@ class Board
 
   def array(x,y)
     [x,y].each{ |e| raise StandardError unless e >= 0 && e <= @size }
+  end
+
+  def move(x,y)
+    [x,y].each{ |e| raise OutOfBoard if e >= @size }
   end
 
   private
