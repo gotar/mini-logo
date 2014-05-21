@@ -17,7 +17,7 @@ class Board
   end
 
   def move(x,y)
-    @current_position = {x: x, y: y}
+    current_position = {x: x, y: y}
   end
 
   private
