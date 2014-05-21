@@ -54,5 +54,9 @@ describe Board do
     it 'forbids to go out of range' do
       expect(board.move(10,10)).to raise_error(OutOfBoard)
     end
+
+    it 'doesn not accept float number' do
+      expect(board.move(2.78, 2.55)).to raise_error
+    end
   end
 end
