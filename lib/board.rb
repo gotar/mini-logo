@@ -1,7 +1,8 @@
 class OutOfBoard < StandardError; end
 
 class Board
-  attr_reader :grid, :size, :current_position
+  attr_reader :grid, :size
+  attr_accessor :current_position
 
   EMPTY_CHAR = '.'
   USED_CHAR = 'X'
@@ -19,6 +20,10 @@ class Board
 
   def move(x,y)
     [x,y].each{|e| raise OutOfBoard if (e >= @size || e < 0)}
+  end
+
+  def move(x,y)
+    current_position = {x: x, y: y}
   end
 
   private

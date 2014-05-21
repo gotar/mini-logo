@@ -66,5 +66,9 @@ describe Board do
         board.move(1,1)
       }.to change(board.current_position).from(Board::EMPTY_CHAR).to(Board::USED_CHAR)
     end
+
+    it 'doesn not accept float number' do
+      expect(board.move(2.78, 2.55)).to raise_error
+    end
   end
 end
