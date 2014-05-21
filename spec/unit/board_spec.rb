@@ -42,11 +42,10 @@ describe Board do
       }.not_to raise_error
     end
 
-    # Marta B
     it 'change current_position to position after move' do
       expect{
         board.move(1, 1)
-      }.to change(board.current_position).from({x: 5, y: 5}).to({x: 1, y: 1})
+      }.to change{board.current_position}.from({x: 2, y: 2}).to({x: 1, y: 1})
     end
 
     it 'forbids to go out of range' do
@@ -61,12 +60,14 @@ describe Board do
       }.to raise_error(OutOfBoard)
     end
 
+    # Bartek
     it 'changes EMPTY_CHAR to USED_CHAR after move' do
       expect{
         board.move(1,1)
       }.to change(board.current_position).from(Board::EMPTY_CHAR).to(Board::USED_CHAR)
     end
 
+    # Marcin F
     it 'doesn not accept float number' do
       expect(board.move(2.78, 2.55)).to raise_error
     end

@@ -20,7 +20,7 @@ class Board
 
   def move(x,y)
     [x,y].each{|e| raise OutOfBoard if (e >= size-1 || e < 0)}
-    current_position = {x: x, y: y}
+    @current_position = {x: x, y: y}
   end
 
   private
