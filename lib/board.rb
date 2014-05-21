@@ -15,14 +15,11 @@ class Board
   end
 
   def array(x,y)
-    [x,y].each{|e| raise StandardError unless e >= 0 && e <= @size}
+    [x,y].each{|e| raise StandardError unless e >= 0 && e <= size}
   end
 
   def move(x,y)
-    [x,y].each{|e| raise OutOfBoard if (e >= @size || e < 0)}
-  end
-
-  def move(x,y)
+    [x,y].each{|e| raise OutOfBoard if (e >= size-1 || e < 0)}
     current_position = {x: x, y: y}
   end
 
