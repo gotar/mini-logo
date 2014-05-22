@@ -1,7 +1,7 @@
 class OutOfBoard < StandardError; end
 
 class Board
-  attr_reader :size
+  attr_reader :size, :grid
   attr_accessor :current_position
 
   EMPTY_CHAR = '.'
