@@ -6,5 +6,12 @@ describe Main do
         Main.new.command(x)
       }.to raise_error(WrongInput)
     end
+
+    it 'quits with "q" command' do
+      expect{
+        Main.new.command("q")
+      }.to raise_error SystemExit
+    end
   end
 end
+

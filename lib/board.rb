@@ -19,7 +19,10 @@ class Board
   end
 
   def move(x,y)
-    [x,y].each{|e| raise OutOfBoard if (e >= size-1 || e < 0)}
+    [x,y].each do |e|
+      raise ArgumentError unless e.is_a?(Integer)
+      raise OutOfBoard if (e >= size-1 || e < 0)
+    end
     @current_position = {x: x, y: y}
   end
 
@@ -32,3 +35,4 @@ class Board
     end
   end
 end
+
