@@ -68,8 +68,11 @@ describe Board do
     end
 
     # Marcin F
-    it 'doesn not accept float number' do
-      expect(board.move(2.78, 2.55)).to raise_error
+    it 'does not accept float number' do
+      expect{
+        board.move(2.78, 2.55)
+      }.to raise_error
     end
   end
 end
+
