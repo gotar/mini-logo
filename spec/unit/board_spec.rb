@@ -11,16 +11,16 @@ describe Board do
 
   it 'returns array' do
     expect(
-      board.grid
+      board.instance_variable_get(:@grid)
     ).to be_an(Array)
   end
 
   it 'fills a board with "."' do
-    expect(board.grid.flatten.count('.')).to eq((board.size**2)-1)
+    expect(board.instance_variable_get(:@grid).flatten.count('.')).to eq((board.size**2)-1)
   end
 
   it 'puts "X" in the center of a board' do
-    expect(board.grid[board.size/2][board.size/2]).to eq(Board::USED_CHAR)
+    expect(board.instance_variable_get(:@grid)[board.size/2][board.size/2]).to eq(Board::USED_CHAR)
   end
 
   it 'creates a hash with #current_position' do
@@ -59,17 +59,24 @@ describe Board do
         board.move(-1, -1)
       }.to raise_error(OutOfBoard)
     end
-
     # Bartek
     it 'changes EMPTY_CHAR to USED_CHAR after move' do
       expect{
         board.move(1,1)
-      }.to change(board.current_position).from(Board::EMPTY_CHAR).to(Board::USED_CHAR)
+      }.to change{board.instance_variable_get(:@grid)[1][1]}.from(Board::EMPTY_CHAR).to(Board::USED_CHAR)
     end
 
     # Marcin F
     it 'doesn not accept float number' do
-      expect(board.move(2.78, 2.55)).to raise_error
+      expect{board.move(2.78, 2.55)}.to raise_error
+    end
+  end
+
+  describe '#draw' do
+    it 'returns @grid as a multiline string' do
+      expect(board.draw).to eq(
+        ". . . . .\n. . . . .\n. . x . .\n. . . . .\n. . . . ."
+      )
     end
   end
 end
