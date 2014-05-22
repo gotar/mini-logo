@@ -1,7 +1,6 @@
 require_relative '../../lib/main'
 
 describe 'Main' do
-
   it 'should initialize(with  no params)' do
     expect {
       Main.new
@@ -13,6 +12,12 @@ describe 'Main' do
       expect{
         Main.new.command("x")
       }.to raise_error(WrongInput)
+    end
+
+    it 'quits with "q" command' do
+      expect{
+        Main.new.command("q")
+      }.to raise_error SystemExit
     end
 
     it 'accepts commands in [uldr] format' do

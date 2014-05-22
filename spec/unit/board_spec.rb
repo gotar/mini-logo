@@ -66,6 +66,12 @@ describe Board do
       }.to change{ board.grid[1][1]}.from(Board::EMPTY_CHAR).to(Board::USED_CHAR)
     end
 
+    it 'does not accept float number' do
+      expect{
+        board.move(2.78, 2.55)
+      }.to raise_error
+    end
+
     it 'doesn not accept float number' do
       expect{board.move(2.78, 2.55)}.to raise_error
     end
