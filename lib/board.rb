@@ -1,7 +1,7 @@
 class OutOfBoard < StandardError; end
 
 class Board
-  attr_reader :grid, :size
+  attr_reader :size, :grid
   attr_accessor :current_position
 
   EMPTY_CHAR = '.'
@@ -24,6 +24,7 @@ class Board
       raise OutOfBoard if (e >= size-1 || e < 0)
     end
     @current_position = {x: x, y: y}
+    @grid[y][x] = USED_CHAR
   end
 
   private

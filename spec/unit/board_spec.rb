@@ -60,18 +60,28 @@ describe Board do
       }.to raise_error(OutOfBoard)
     end
 
-    # Bartek
     it 'changes EMPTY_CHAR to USED_CHAR after move' do
       expect{
         board.move(1,1)
-      }.to change(board.current_position).from(Board::EMPTY_CHAR).to(Board::USED_CHAR)
+      }.to change{ board.grid[1][1]}.from(Board::EMPTY_CHAR).to(Board::USED_CHAR)
     end
 
-    # Marcin F
     it 'does not accept float number' do
       expect{
         board.move(2.78, 2.55)
       }.to raise_error
+    end
+
+    it 'doesn not accept float number' do
+      expect{board.move(2.78, 2.55)}.to raise_error
+    end
+  end
+
+  describe '#draw' do
+    it 'returns @grid as a multiline string' do
+      expect(board.draw).to eq(
+        ". . . . .\n. . . . .\n. . x . .\n. . . . .\n. . . . ."
+      )
     end
   end
 end
