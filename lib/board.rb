@@ -27,6 +27,13 @@ class Board
     @grid[y][x] = USED_CHAR
   end
 
+  def draw
+    @grid.each_with_index do |row, i|
+      print "#{row.join(' ')}"
+      print "\n" unless i == grid.size - 1
+    end
+  end
+
   private
   def fill_initial_grid
     @grid = Array.new(size) do |x|
