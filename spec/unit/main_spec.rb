@@ -9,7 +9,7 @@ describe 'Main' do
 
   describe '#command' do
     it 'does not accept commands not in [quldr] digit pattern' do
-      ('a'..'z').to_a.reject { |r| r =~ /[quldr]/ }.each do |w|
+      %w(q u a l d r).each do |w|
         expect{
           Main.new.command(w)
         }.to raise_error(WrongInput)
