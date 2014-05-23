@@ -31,5 +31,17 @@ describe 'Main' do
         Main.new.command("U")
       }.not_to raise_error
     end
+
+    it 'accepts commands with a digit after a letter' do
+      expect{
+        Main.new.command("u 3")
+      }.not_to raise_error(WrongInput)
+    end
+
+    it 'does not accept commands with negative numbers' do
+      expect{
+        Main.new.command("d -7")
+      }.to raise(WrongInput)
+    end
   end
 end
