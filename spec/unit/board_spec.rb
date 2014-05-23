@@ -72,8 +72,11 @@ describe Board do
       }.to raise_error
     end
 
-    it 'doesn not accept float number' do
-      expect{board.move(2.78, 2.55)}.to raise_error
+    it 'updates grid after movement' do
+      board.move(2,1)
+      expect(board.draw).to eq(
+        ". . . . .\n. . X . .\n. . X . .\n. . . . .\n. . . . ."
+      )
     end
   end
 
