@@ -8,15 +8,23 @@ describe 'Main' do
   end
 
   describe '#command' do
-    it 'does not accept commands not in [uldr] digit pattern' do
-      expect{
-        Main.new.command("x")
-      }.to raise_error(WrongInput)
+    it 'does not accept commands not in [quldr] digit pattern' do
+      ('a'..'z').to_a.reject { |r| r =~ /[quldr]/ }.each do |w|
+        expect{
+          Main.new.command(w)
+        }.to raise_error(WrongInput)
+      end
     end
 
     it 'quits with "q" command' do
       expect{
         Main.new.command("q")
+      }.to raise_error SystemExit
+    end
+
+    it 'quits with "Q" command' do
+      expect{
+        Main.new.command("Q")
       }.to raise_error SystemExit
     end
 
