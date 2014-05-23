@@ -78,10 +78,30 @@ describe Board do
   end
 
   describe '#draw' do
+
+    def capture_stdout(&block)
+      original_stdout = $stdout
+      $stdout = fake = StringIO.new
+      begin
+        yield
+      ensure
+        $stdout = original_stdout
+      end
+      fake.string
+    end
+
     it 'returns @grid as a multiline string' do
-      expect(board.draw).to eq(
-        ". . . . .\n. . . . .\n. . x . .\n. . . . .\n. . . . ."
+      expect(
+        capture_stdout { board.draw }
+      ).to eq(
+        ". . . . .\n. . . . .\n. . X . .\n. . . . .\n. . . . ."
       )
+    end
+    
+    it 'cleans terminal if triggered' do
+        expect(
+          capture_stdout { board.draw }
+        ).to match(/\\033c/)
     end
   end
 end
