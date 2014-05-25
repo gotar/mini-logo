@@ -51,5 +51,14 @@ describe 'Main' do
         Main.new.command("d -7")
       }.to raise(WrongInput)
     end
+
+    context 'to move left' do
+      let(:board) { Board.new(5) }
+      before { Main.new.command("L 1") }
+
+      it 'changes current_position after movement' do
+        expect (board.current_position).to eq({x: 1, y: board.size/2})
+      end
+    end
   end
 end

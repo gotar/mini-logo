@@ -1,3 +1,4 @@
+require 'spec_helper'
 require_relative '../../lib/board'
 
 describe Board do
@@ -71,26 +72,15 @@ describe Board do
         board.move(2.78, 2.55)
       }.to raise_error
     end
-
-    # Michał
-    it 'updates grid after movement' do
-      board.move(2,1)
-      expect(board.draw).to eq(
-        ". . . . .\n. . X . .\n. . X . .\n. . . . .\n. . . . ."
-      )
-    end
   end
 
   describe '#draw' do
-    def capture_stdout(&block)
-      original_stdout = $stdout
-      $stdout = fake = StringIO.new
-      begin
-        yield
-      ensure
-        $stdout = original_stdout
-      end
-      fake.string
+    # Michał
+    it 'updates grid after movement' do
+      board.move(2,1)
+      expect(capture_stdout { board.draw }).to eq(
+        ". . . . .\n. . X . .\n. . X . .\n. . . . .\n. . . . ."
+      )
     end
 
     it 'returns @grid as a multiline string' do
