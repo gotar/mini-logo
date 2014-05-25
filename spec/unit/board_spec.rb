@@ -72,6 +72,7 @@ describe Board do
       }.to raise_error
     end
 
+    # Michał
     it 'updates grid after movement' do
       board.move(2,1)
       expect(board.draw).to eq(
@@ -81,7 +82,6 @@ describe Board do
   end
 
   describe '#draw' do
-
     def capture_stdout(&block)
       original_stdout = $stdout
       $stdout = fake = StringIO.new
@@ -100,7 +100,8 @@ describe Board do
         ". . . . .\n. . . . .\n. . X . .\n. . . . .\n. . . . ."
       )
     end
-    
+
+    # Mateusz
     it 'cleans terminal if triggered' do
         expect(
           capture_stdout { board.draw }
