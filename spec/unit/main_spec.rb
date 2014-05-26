@@ -7,6 +7,12 @@ describe 'Main' do
     }.not_to raise_error
   end
 
+  it 'puts "Enter command:" prompt' do
+    expect(
+      capture_stdout
+      ).to match("Enter command:")
+  end
+
   describe '#command' do
     it 'does not accept commands not in [uldr] digit pattern' do
       expect{

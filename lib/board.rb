@@ -29,6 +29,7 @@ class Board
 
   def draw
     @grid.each_with_index do |row, i|
+      print "\\033c"
       print "#{row.join(' ')}"
       print "\n" unless i == grid.size - 1
     end
